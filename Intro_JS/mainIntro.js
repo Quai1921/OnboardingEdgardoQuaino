@@ -121,13 +121,13 @@ console.log(fruits[4])
 // the result in a variable called IamAdult and display a message in the console that says:
 // "I am an adult" (and the value of the variable).
 
-// let iAmAdult = prompt("Enter your age:")
+let iAmAdult = prompt("Enter your age:")
 // console.log(iAmAdult)
 
-let iAmAdult = 14
-
 if (iAmAdult >= 18) {
-    console.log ((`I am an Adult. I am ${iAmAdult} years old`))
+    console.log (`I am an Adult. I am ${iAmAdult} years old`)
+} else if (isNaN(iAmAdult) || iAmAdult <= 0){
+    console.log(`Invalid number`)
 }else {
     console.log(`I am not an Adult. I am ${iAmAdult} years old`)
 }
@@ -136,7 +136,7 @@ if (iAmAdult >= 18) {
 // Exercise 2
 // Create an array called "numbers" with a minimum of 5 elements and display the entire array and each of the elements separately in the console.
 let numbers = [10, 19, 21, 35, 60]
-console.log(numbers)
+console.table(numbers)
 console.log(numbers[0])
 console.log(numbers[1])
 console.log(numbers[2])

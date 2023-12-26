@@ -3,14 +3,13 @@
 // Declaring functions
 // This first exercise is for learning how to declare a function. In this case you must declare a named function called "add" that within its body, 
 // must execute an instruction that displays the result of 100 x 20 in the console.
-
 function add(){
     let num1 = 100
     let num2 = 20
     let multiplication = num1 * num2
     console.log(multiplication)
-    
 }
+
 add()
 add()
 
@@ -20,7 +19,6 @@ console.log(add)
 // Exercise 2
 // Calling/executing functions.
 // We already have the declaration, the next step is to call/execute the "add" function. Execute it and check that the result is displayed in the console.
-
 add()
 
 
@@ -33,9 +31,8 @@ add()
 function add(num1, num2){
     let multiplication = num1 * num2
     console.log(multiplication)
-    
+    return multiplication
 }
-
 
 console.log(add(9,6))
 
@@ -43,10 +40,8 @@ console.log(add(9,6))
 // Exercise 4
 // Using arguments.
 // We have already added parameters to the declaration of our function, the next step is to "pass it arguments". To do this,  create two variables like the following in the example:
-
 let number1 = 100;
 let number2 = 20;
-
 
 console.log(add(number1, number2))
 
@@ -55,12 +50,10 @@ console.log(add(number1, number2))
 // Adding the <return>.
 // With our named function set up correctly, it's time to change the console.log of the function body.
 // Create a result variable inside the function body that will store the result of 100 x 20, and have the function returns that variable.
-
 function add(num1, num2){
     let multiplication = num1 * num2
     return multiplication
 }
-
 
 console.log(add(100, 5))
 
@@ -70,11 +63,9 @@ console.log(multiplicationResult)
 
 // Exercise 6
 // Convert the named function from the previous exercise into an anonymous function and call/execute it
-
 let fnMultiplication = function (num1, num2){
     return num1 * num2
 }
-
 
 console.log(fnMultiplication(20,40))
 
@@ -85,12 +76,11 @@ console.log(fnMultiplication(20,40))
 // receives a string parameter representing a name, and
 // displays a custom greeting using the provided name in the console.
 // Call/run the function with your own name to verify that it works correctly.
-
 function greet (string){
     return `Hello ${string}, welcome to MindHub.` 
 }
 
-console.log(greet("Nico"))
+console.log(greet("Nicolas"))
 
 
 // Exercise 2
@@ -98,7 +88,6 @@ console.log(greet("Nico"))
 // receives two numerical parameters and
 // returns the result of the multiplication of both.
 // Calls/executes the function with two different values and displays the result via console.
-
 const opertationMultiplication = function (num_01, num_02){
     return num_01 * num_02
 }
@@ -111,7 +100,6 @@ console.log(opertationMultiplication(20, 2))
 // Create a named function called "area" that
 // receives two numerical parameters, one representing the base and the other the height of a triangle.
 // return its area.
-
 function area (base, height){
     return (base * height) / 2
 }
@@ -124,7 +112,6 @@ console.log(area(20, 30))
 // receives three numerical parameters that represent each of the sides of a triangle, and
 // returns the perimeter of the triangle.
 // Tip! Remember the formulas for area and perimeter of triangles.
-
 function perimeter (side1, side2, side3){
     return side1 + side2 + side3
 }
@@ -139,21 +126,19 @@ console.log(perimeter(20, 30, 60))
 // If the number of products is greater than or equal to 10, ==> a 10% discount applies to the total price.
 // If the number of products is greater than or equal to 20, ==> a 20% discount applies to the total price.
 // Call/run the function with different price and quantity values to verify it works correctly
-
 function priceTotal (value, quantity){
     let priceFinal = value * quantity
-    if(quantity >= 20){
-        return (priceFinal * 0.8)
-    } else if (quantity >= 10){
+
+    if(quantity >= 10 && quantity < 20){
         return (priceFinal * 0.9)
+    } else if (quantity >= 20 ){
+        return (priceFinal * 0.8)
     } else {
         return priceFinal
     }
 }
 
 console.log(priceTotal(5, 22)) 
-
-// SI INVIERTO LAS CONDICIONES NO ME FUNCIONA
 
 
 // Exercise 5
@@ -164,12 +149,13 @@ console.log(priceTotal(5, 22))
 // If Age is less than 18 "You are not an adult"
 // Call the function with different age values to verify that it works correctly.
 // Call the function with different age values to verify that it works correctly.
-
-
 function isAnAdult (age){
     if (age >= 18){
         return "You are an adult"
-    } else {
+    } else if (isNaN(age)){
+        return "Invalid number"
+    }
+    else {
         return "You are not an adult"
     }
 }
@@ -200,7 +186,6 @@ function payableTax (income){
     }
 }
 
-
 console.log(payableTax(15000))
 
 
@@ -212,7 +197,7 @@ console.log(payableTax(15000))
 // If the number is 6 or 7, message: "It's the weekend."
 // Use the nested switch control structure to implement this function.
 // Call the function with different day values to verify that it works correctly.
-function daysWeek(dayNumber) {
+function businessDays(dayNumber) {
     switch (dayNumber){
         case 1:
         case 2:
@@ -230,7 +215,7 @@ function daysWeek(dayNumber) {
     }
 }
 
-console.log(daysWeek(3))
+console.log(businessDays(3))
 
 
 // Exercise 3
@@ -241,21 +226,23 @@ console.log(daysWeek(3))
 // Finally, the user must be asked to enter the age and it must be validated too.
 // Once all the data were verified, the function must save all that data in an object with 3 properties: first name, last name and age and display it through the console.
 // To finish, the function must be called/executed and tested with different values.
-
 function personalInformation (){
     let firstName = prompt(`Enter your first name:`)
     if (firstName == ""){
-        return "The first name cannot be empty"
+        alert("The first name cannot be empty.")
+        return
     }
 
     let lastName = prompt(`Enter your last name:`)
     if (lastName == ""){
-        return  "The last name cannot be empty"
+        alert("The last name cannot be empty.")
+        return
     }
 
     let personAge = +prompt(`Enter your age:`)
-    if (personAge == "" || personAge <= 0 || personAge == NaN){
-        return  "The age cannot be empty"
+    if (personAge == "" || personAge <= 0 || isNaN(personAge)){
+        alert("The age cannot be empty or invalid age.")
+        return
     }
 
     let personalInformation = {
@@ -271,7 +258,6 @@ console.log(personalInformation())
 
 
 // SEPARANDO LAS FUNCIONES
-
 function solicitarDatos() {
     const nombre = prompt(`Ingrese su nombre:`)
     const apellido = prompt(`Ingrese su apellido:`)
@@ -286,24 +272,59 @@ function solicitarDatos() {
     return datosIngresados
 }
 
-
 function verificarDatosIngresados(nombre, apellido, edad) {
-    return nombre != "" && apellido != "" && edad != "" && edad != 0
+    return nombre != "" && apellido != "" && edad != "" && edad != 0 && !isNaN(edad)
 }
-
 
 function realizarCargaDatos (){
     const datosParaControlar = solicitarDatos()
     const datosValidos = verificarDatosIngresados(datosParaControlar.nombre, datosParaControlar.apellido, datosParaControlar.edad)
     if(datosValidos){
-        const datosFinales = datosParaControlar
-        console.log(datosFinales)
+        console.log("Datos ingrsados válidos")
     } else {
-        console.log("Los datos ingresados no cumplen con los requisitos")
+        return("Los datos ingresados no cumplen con los requisitos")
     }
+    return datosParaControlar
 }
 
-console.log(realizarCargaDatos())
+const datosFinales = realizarCargaDatos()
+console.log(datosFinales)
+
+
+// SOLUCION CONJUNTA
+
+const nombreIngresado = "Nicolas"
+
+function ejercicio3(nombre) {
+    if (nombre != "string" || nombre.length == 0) {
+        console.error("The name cannot be empty")
+        return
+    }
+    const apellido = "Cirulli"
+    if (apellido != "string" || apellido.length == 0) {
+        console.error("The lastname cannot be empty")
+        return
+    }
+    const edad = parseInt("29")
+    if (isNaN(edad) || edad <= 0) {
+        console.error("The age cannot be empty")
+        return
+    }
+    const persona = {
+        nombre: nombre,
+        apellido: apellido,
+        edad: edad,
+
+        presentarse() {
+            console.log(`Hola soy ${this.nombre} ${this.apellido} y tengo ${this.edad} años`)
+        }
+    }
+    persona.presentarse()
+
+    console.log()
+}
+
+ejercicio3(nombreIngresado)
 
 
 // Exercise 4
@@ -313,9 +334,6 @@ console.log(realizarCargaDatos())
 // This function will return the result of the current year minus the year of birth.
 // 3rd function: present: call/execute the other two functions and execute an alert with the user's presentation
 // The user's data must be entered on the screen and the final result also displayed on the screen
-
-
-
 function inputtedData(){
     const nameReceived = prompt(`Enter your name:`)
     const yearBirthReceived = Number(prompt(`Enter your year of birth:`))
@@ -330,16 +348,13 @@ function inputtedData(){
     return receivedData
 }
 
-
 function dataGreet(enteredName){
     return `Hello, my name is ${enteredName}`
 }
 
-
 function calculateAge(yearBirth, curretnYear){
     return curretnYear - yearBirth
 }
-
 
 function present(){
     const nameIntroduction = inputtedData()
@@ -349,4 +364,4 @@ function present(){
     alert(`${greet}. I have ${ages} years old. `)
 }
 
-console.log(present())
+present()

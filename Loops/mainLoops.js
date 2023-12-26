@@ -12,7 +12,7 @@
 function descendingNumbers (number){
     const numberReceived = Number(prompt(`Enter a number between 1 and 100`))
     const descendingValues = []
-    if(numberReceived >= 1 && numberReceived <= 100){
+    if(numberReceived >= 1 && numberReceived <= 100 && !isNaN(numberReceived) ){
         for (let i = numberReceived; i >= 0; i--) {
             const numbersRange = (i)
             console.log(numbersRange)
@@ -43,17 +43,22 @@ console.log(result)
 // 10x5=50
 function multiplication(number){
     const numberReceived = Number(prompt(`Enter a number between 1 and 10`))
+    const table = []
     if(numberReceived >= 1 && numberReceived <= 10){
         for (let i = 1; i <= 10; i++) {
             const numbersMultiplication = `${numberReceived} x ${i} = ${numberReceived*(i)}`
             console.log(numbersMultiplication)
+            table.push(numbersMultiplication)
         }
     } else {
-        console.log(`Invalid number`)
+        return(`Invalid number`)
     }
+    
+    return table
 }
 
-multiplication()
+const tableFive = multiplication(5)
+console.log(tableFive)
 
 
 // Exercise 3
@@ -63,28 +68,28 @@ multiplication()
 // Suppose you entered 1 then 3 then 0. This would be the result: 4. 
 // Tip! Be careful, remember that the promt returns a string.
 let acumulated1 = 0
-let numberReceived = Number(prompt(`Enter a number or 0 to finish.`))
+let numberReceived = Number(prompt(`Enter a number or "0" to finish.`))
 
-while(numberReceived !== 0){
+while(numberReceived !== 0 && !isNaN(numberReceived)){
     acumulated1 += numberReceived
-    numberReceived = Number(prompt(`Enter a number or 0 to finish.`))
+    numberReceived = Number(prompt(`Enter a number or "0" to finish.`))
 }
 
-console.log(acumulated1)
+console.log(`The cumulative sum is: ${acumulated1}`)
 
 
 // OTRA SOLUCION
 let suma2 = 0
 
 while (true) {
-    const numero = Number(prompt(`Ingrese un numero o 0 para temrinar.`))
-    if(numero == 0){
+    const numero = Number(prompt(`Ingrese un numero ó "0" para temrinar.`))
+    if(numero == 0 || isNaN(numero)){
         break;
     }
     suma2 = suma2 + numero
 } 
 
-console.log(suma2)
+console.log(`La suma acumulada es igual a: ${suma2}`)
 
 
 // Exercise 4
@@ -96,7 +101,7 @@ let acumulated4 = 0
 do {
     numberReceived4 = Number(prompt(`Enter a number or 0 to finish.`))
     acumulated4 += numberReceived4
-} while (numberReceived4 !== 0);
+} while (numberReceived4 !== 0 && !isNaN(numberReceived4));
     console.log(`The operation has been completed. The result is: ${acumulated4}`);
 
 

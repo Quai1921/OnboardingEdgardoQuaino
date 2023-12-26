@@ -73,6 +73,7 @@ if (date3 > date4) {
     console.log(`The date ${date4} is greater than ${date3}`)
 }
 
+
 // Exercise 6
 // In this case, create a conditional block that evaluates which of the three numbers stored in the variables is the largest.
 // Print a string through the console that says “The number [ ] is the largest”
@@ -91,6 +92,11 @@ if (number1 > number2 && number1 > number3) {
 } else {
     console.log(`The number ${number3} is the largest`)
 }
+
+// USANDO MATH
+
+console.log(`The number most largest is ${Math.max(5, 7, 9)}`)
+
 
 // Difficulty Level: Medium
 // Exercise 1
@@ -128,16 +134,11 @@ switch (color) {
 // Tip! Don't forget the break statement
 
 
-// let value1 = Number(prompt(`Enter the first number (between 1 and 100)`))
-// let value2 = Number(prompt(`Enter the second number (between 1 and 100)`))
-// let operation = prompt(`Enter the operation (addition, substraction, multiplication, division)`)
+let value1 = Number(prompt(`Enter the first number (between 1 and 100)`))
+let value2 = Number(prompt(`Enter the second number (between 1 and 100)`))
+let operation = prompt(`Enter the operation (addition, substraction, multiplication, division)`)
 
-let value1 = 20
-let value2 = 10
-let operation = ("division")
-
-
-if (value1 < 1 || value1 > 100 || value2 < 1 || value2 > 100) {
+if (value1 < 1 || value1 > 100 || value2 < 1 || value2 > 100 || isNaN(value1) || isNaN(value2)) {
     console.log(`Please, enter numbers between 1 a 100.`)
 } else {
     switch (operation) {
@@ -258,21 +259,15 @@ switch (true) {
 // Measure more than 110 cm.
 // Have a vision of at least 8 out of 10.
 // Tip! Remember prompt( ) to enter data on the screen.
-
-
-
-// let nameperson = prompt(`Enter your name:`)
-// let age = +prompt(`Enter your age:`)
-// let heigth = +prompt(`Enter your heigth (in cm):`)
-// let vision = +prompt(`Enter your vision:`)
-
-let nameperson = "Edgardo"
-let age = 41
-let heigth = 191
-let vision = 8
+let nameperson = prompt(`Enter your name:`)
+let age = Number(prompt(`Enter your age:`))
+let heigth = Number(prompt(`Enter your heigth (in cm):`))
+let vision = Number(prompt(`Enter your vision:`))
 
 if (age >= 18 && heigth >= 110 && vision >= 8) {
     console.log(`You are qualified to drive.`)
+} else if (!isNaN(age) || !isNaN(heigth) || !isNaN(vision)){
+    console.log(`Invalid data entered.`)
 } else {
     console.log (`Sorry ${nameperson}. You are not qualified to drive.`)
 }
@@ -286,10 +281,7 @@ if (age >= 18 && heigth >= 110 && vision >= 8) {
 // elderly (over 45 years)
 // Is he really that old? (more than 100 show)
 // Tip! Remember alert( ) to display data on the screen.
-
-// let dataAge = prompt(`Enter your age, please:`)
-
-let dataAge = 45
+let dataAge = prompt(`Enter your age, please:`)
 
 if (dataAge >= 0 && dataAge <= 12){
     console.log(`Infant`)
@@ -305,9 +297,8 @@ if (dataAge >= 0 && dataAge <= 12){
     console.log(`Invalid number`)
 }
 
-// CON SWITCH
-// let edadIngersada = prompt(`Enter your age, please:`)
-let edadIngersada = 150
+// USANDO SWITCH
+let edadIngersada = prompt(`Enter your age, please:`)
 
 switch (true) {
     case (edadIngersada >= 0 && edadIngersada <= 12):
@@ -338,10 +329,7 @@ switch (true) {
 // 3: “Three times the number entered is [ ]”
 // another: “That value is not allowed”
 // Tip! Remember alert( ) to display data on the screen.
-
-
-// let numberDigited = +prompt(`Enter a number please (between 1 and 3):`)
-let numberDigited = 1
+let numberDigited = +prompt(`Enter a number please (between 1 and 3):`)
 
 if (numberDigited >= 1 && numberDigited <= 3) {
     console.log(`1. The number entered is: ${numberDigited}`)
@@ -353,24 +341,23 @@ if (numberDigited >= 1 && numberDigited <= 3) {
 
 
 // USANDO SWITCH
-// let numEntered = Number(prompt(`Enter a number please (between 1 and 3):`))
-let numEntered = 2;
+let numEntered = Number(prompt(`Enter a number please (between 1 and 3):`))
 
 switch (numEntered) {
     case 1:
         console.log(`1: The number entered is: ${numEntered}`);
         console.log(`2: Twice the number entered is ${numEntered * 2}`);
-        console.log(`3: Three times the number entered is ${numEntered * 2}`);
+        console.log(`3: Three times the number entered is ${numEntered * 3}`);
         break;
     case 2:
         console.log(`1: The number entered is: ${numEntered}`);
         console.log(`2: Twice the number entered is ${numEntered * 2}`);
-        console.log(`3: Three times the number entered is ${numEntered * 2}`);
+        console.log(`3: Three times the number entered is ${numEntered * 3}`);
         break;
     case 3:
         console.log(`1: The number entered is: ${numEntered}`);
         console.log(`2: Twice the number entered is ${numEntered * 2}`);
-        console.log(`3: Three times the number entered is ${numEntered * 2}`);
+        console.log(`3: Three times the number entered is ${numEntered * 3}`);
         break;
     default:
         console.log("That value is not allowed");
@@ -391,32 +378,28 @@ switch (numEntered) {
 // affirmative ==> ask for available money, in case:
 // More than 1000 ==> show a successful sale and welcome message
 // Less than 1000 ==> show sales rejection message
+let customerName = prompt(`Enter your name:`)
+let pass = prompt(`It has a pass? (VIP or none):`)
+let hasEntrance = prompt("Do you have a ticket? (yes o no):")
 
-let customerName = prompt(`Enter your name`)
-let pass = prompt(`It has a pass (VIP or none):`)
-let hasEntrance = prompt("¿Tiene entrada? (yes o no):");
-
-
-
-if (customerName == "Edgardo" || pass == "VIP") {
-    console.log(`Welcome ${customerName}`);
-} else if (pass == "normal"){
+if (customerName == "Edgardo" || pass.toLowerCase() == "vip") {
+    console.log(`Welcome ${customerName}`)
+} else if (hasEntrance.toLowerCase() == "yes"){
     let useTicket =  prompt("Do you want to use the ticket?? (yes or no)");
-
-    if (useTicket == "yes") {
-        console.log(`Welcome ${customerName}`);
+    if (useTicket.toLowerCase() == "yes") {
+        console.log(`Welcome ${customerName}`)
     } else {
-        console.log(`Ok. Bye ${customerName}`);
+        console.log(`Ok. Bye ${customerName}`)
     }
 } else {
     let wantToBuy = prompt("Do you want to buy? (yes or no)");
 
-    switch (wantToBuy) {
+    switch (wantToBuy.toLowerCase()) {
         case "no":
-            console.log(`Thanks. Bye ${customerName}`);
+            console.log(`Thanks. Bye ${customerName}`)
             break;
         case "yes":
-            let availableMoney = +prompt("Enter the amount of available money");
+            let availableMoney = Number(prompt("Enter the amount of available money"))
             if (availableMoney >= 1000) {
                 console.log(`Successful purchase. Welcome ${customerName}`);
             } else {
