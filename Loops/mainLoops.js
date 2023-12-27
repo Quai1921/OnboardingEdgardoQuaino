@@ -118,7 +118,7 @@ let person = {
     origin: `La Falda. Córdoba`,
     studies: `University`,
     age: 45
-};
+}
 
 for (let key in person) {
     console.log(key)
@@ -139,8 +139,7 @@ for (let key in person) {
 // If the value entered is greater than the "secret" number, notify the user through the console ("the number entered is greater than the secret", the same if the value is less.
 // So on until the user guesses the secret number. Finally, show a congratulatory message on the screen and tell you how many attempts you have made 
 // ("You got it right! The secret number was <number> and you made <x> attempts"
-let acumulated = 25
-let secretNumber = acumulated
+let secretNumber = acumulated1
 let attempts = 0
 
 while (true) {
@@ -149,10 +148,8 @@ while (true) {
     if(enteredNumber == secretNumber){
         alert(`You got it right! The secret number was ${secretNumber} and you made ${attempts} attempts.`)
         break;
-
     } else if (enteredNumber > secretNumber){
         alert("The number entered is greater than the secret number.")
-
     } else {
         alert("The number entered is less than the secret number.")
     }
@@ -169,7 +166,7 @@ let numberReceived2 = Number(prompt(`Enter a number to find its divisors.`))
 let divisors = []
 
 for (let i = 1; i <= numberReceived2; i++) {
-    if (numberReceived2 % i === 0){
+    if (numberReceived2 % i == 0){
         console.log(i)
         divisors.push(i)
     }
@@ -182,7 +179,7 @@ let numberReceived2_1 = Number(prompt(`Enter a number to find its divisors.`))
 let i = 1
 
 do {
-    if (numberReceived2_1 % i === 0) {
+    if (numberReceived2_1 % i == 0) {
         console.log(i);
     }
     i++
@@ -206,6 +203,10 @@ function RingBell() {
 let numberDingDong = +prompt("Enter a number:")
 
 let dingDongsResult = ""
+if (isNaN(numberDingDong)) {
+    console.log(`Invalid number.`)
+}
+
 
 for (let i = 1; i <= numberDingDong; i++) {
     dingDongsResult = dingDongsResult + " " + RingBell()
@@ -242,10 +243,6 @@ let colors = ["Red", "Green", "Blue", "Violet", "Brown", "Black", "White"]
 
 for (const color of colors) {
     console.log(color)
-}
-
-for (const color of colors) {
-    console.log(colors[2])
 }
 
 
@@ -300,7 +297,7 @@ let family = [
     {
         name: "Horacio",
         lastName: "Varoli",
-        age: 75,
+        age: 76,
         member: "Father"
     },
     {
@@ -353,7 +350,8 @@ function sumPairsAndOdds(){
 
     while (true) {
         let enteredNumber = Number(prompt(`Enter a number, even or odd, or 0 to finish.`))
-        if (enteredNumber == 0){
+        if (enteredNumber == 0 || isNaN(enteredNumber)){
+            console.log(`Operation completed or number 0 entered.`)
             break;
         }
         if (enteredNumber % 2 == 0){
@@ -370,7 +368,6 @@ function sumPairsAndOdds(){
 
 sumPairsAndOdds()
 
-
 // Excersise 2
 // Using the loop that you think is correct, create an array of 10 numbers and make a program that prints the largest number in the array, on the screen.
 let randomNumbers = [79, 1, 5, 35, 50, 108, 49, 27, 80, 78]
@@ -381,13 +378,13 @@ function largestNumber(array){
         if(array[i] > largest){
             largest = array[i]
         }
-        
     }
     console.log(`The largest number is: ${largest}`)
 }
 
 largestNumber(randomNumbers)
 
-
+// USANDO MATH.MAX
+console.log(Math.max(...randomNumbers))
 
 
