@@ -89,8 +89,10 @@ if (number1 > number2 && number1 > number3) {
     console.log(`The number ${number1} is the largest`)
 } else if (number2 > number1 && number2 > number3) {
     console.log(`The number ${number2} is the largest`)
-} else {
+} else if (number3 > number1 && number3 > number2){
     console.log(`The number ${number3} is the largest`)
+} else {
+    console.log(`The numbers are equals`)
 }
 
 // USANDO MATH
